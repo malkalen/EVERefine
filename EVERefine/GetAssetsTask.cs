@@ -1,30 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using EveAI.Live;
 using EveAI.Live.Utility;
 
 namespace EVERefine
 {
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-        private void GetAssetsBtn_Click(object sender, EventArgs e)
-        {
-            GetAssetsTask getAssetsTask = new GetAssetsTask(Convert.ToInt64(KeyIDTxt.Text), vCodeTxt.Text, Convert.ToInt64(characterTxt.Text));
-            getAssetsTask.GetAssets();
-        }
-
-        private void vCodeTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-    }
-
     public class GetAssetsTask
     {
         private readonly long _keyId;

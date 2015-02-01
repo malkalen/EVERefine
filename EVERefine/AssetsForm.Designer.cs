@@ -1,6 +1,6 @@
 ﻿namespace EVERefine
 {
-    partial class Form1
+    partial class AssetsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -71,7 +71,6 @@
             this.vCodeTxt.Size = new System.Drawing.Size(180, 20);
             this.vCodeTxt.TabIndex = 4;
             this.vCodeTxt.Text = "HjWMdixe3irh5hPuUhoDlbcUlJjGoGhYSfAQeC4iWbOl2PrrM520J5S2SZMaOjBb";
-            this.vCodeTxt.TextChanged += new System.EventHandler(this.vCodeTxt_TextChanged);
             // 
             // label2
             // 
