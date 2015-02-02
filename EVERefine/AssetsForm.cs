@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
-using System.Xml;
+using EveAI.Live.Utility;
 
 namespace EVERefine
 {
@@ -14,22 +15,11 @@ namespace EVERefine
 
         private void GetAssetsBtn_Click(object sender, EventArgs e)
         {
-            GetAssetsTask getAssetsTask = new GetAssetsTask(Convert.ToInt64(KeyIDTxt.Text), vCodeTxt.Text, Convert.ToInt64(characterTxt.Text));
-            var assetsXML = getAssetsTask.GetAssets();
-            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),"Assets.XML");
-            assetsXML.Save(path);
-
-            XmlReader reader = XmlReader.Create(path);
-            while (reader.Read())
-            {
-                
-
-            }
-
-            DataSet dataSet = new DataSet();
-            dataSet.ReadXml(@"C:\Users\Alan\Documents\Assets.XML");
-            dataGridView1.DataSource = dataSet.Tables[0];
-
+          var getAssetsTask = new GetAssetsTask(Convert.ToInt64(KeyIDTxt.Text), vCodeTxt.Text, Convert.ToInt64(characterTxt.Text));
+          List<Asset> assets = getAssetsTask.GetAssets();
+          var bindingList = new BindingList<Asset>(assets);
+          var source = new BindingSource(bindingList, null);
+          dataGridView1.DataSource = source;
         }
     }
 }
